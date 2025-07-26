@@ -7,6 +7,8 @@ export default function RSVPForm() {
   const [toddlers, setToddlers] = useState(0);
   const [names, setNames] = useState([""]);
   const [submitted, setSubmitted] = useState(false);
+  const [showNameError, setShowNameError] = useState(false);
+
 
   const handleCountChange = (count: number) => {
     const newNames = [...names];
@@ -24,11 +26,12 @@ export default function RSVPForm() {
 const handleSubmit = async () => {
   const validNames = names.filter(name => name.trim() !== "");
 
+ 
   if (validNames.length === 0) {
-    alert("Unesite barem jedno ime gosta.");
+    setShowNameError(true);
     return;
   }
-
+ setShowNameError(false);
    setSubmitted(true);
     try {
     await fetch("/api/rsvp", {
@@ -114,6 +117,9 @@ const handleSubmit = async () => {
                 onChange={(e) => updateName(index, e.target.value)}
                 className="w-full p-2 border border-[#e5d5c0] rounded-lg bg-white/80"
               />
+              {showNameError && name.trim() === "" && (
+  <p className="text-sm text-red-600 mt-1">Molimo unesite ime gosta.</p>
+)}
             </div>
           ))}
         </div>

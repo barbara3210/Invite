@@ -6,6 +6,9 @@ const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "700"] }
 
 export const metadata: Metadata = {
   title: "Zrinka & Mato",
+  icons: {
+    icon: "/logo.ico", 
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
