@@ -30,8 +30,7 @@ const handleSubmit = async () => {
   }
 
   try {
-   const response = await fetch(
-  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "", 
+   const response = await fetch("/api/rsvp", 
   {
     method: "POST",
     headers: { "Content-Type": "application/json" },
