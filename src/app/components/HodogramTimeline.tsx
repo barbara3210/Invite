@@ -33,34 +33,35 @@ export default function HodogramTimeline() {
     <div className="max-w-6xl mx-auto py-20 px-4">
       <h2 className="text-3xl font-serif text-center mb-20 text-gray-800">Hodogram</h2>
 
-      {/* Linija za mobile (s lijeve strane) */}
-    <div className="relative md:hidden">
-    <div className="absolute left-5 top-0 h-full w-1 bg-[#e5d5c0]" />
-    <div className="flex flex-col gap-12 pl-16"> {/* ← povećan razmak */}
-        {steps.map((step, index) => (
-        <div key={index} className="relative">
-            {/* Točkica */}
-            <div className="absolute -left-8 top-1.5 w-8 h-8 bg-[#e5d5c0] rounded-full flex items-center justify-center shadow-md border-2 border-white">
-            {step.icon}
-            </div>
-            {/* Tekst */}
-            <div className="text-left text-gray-800 px-6">
-            <p className="text-base text-gray-500">{step.time}</p>
-            <p className="text-xl font-semibold">{step.title}</p>
-            <a
-                    href={step.mapsLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base text-[#bfae9e] hover:text-gray-500 transition"
-                    >
-                    {step.location}
-                    </a>
-            {step.address && <p className="text-base text-gray-300">{step.address}</p>}
-            </div>
+        {/* Linija za mobile (s lijeve strane) */}
+        <div className="relative md:hidden">
+          <div className="absolute left-7 top-0 h-full w-1 bg-[#e5d5c0]" />
+          <div className="flex flex-col gap-16 pl-20"> 
+            {steps.map((step, index) => (
+              <div key={index} className="relative flex flex-col"> 
+                {/* Ikona */}
+                <div className="absolute -left-20 top-0 w-15 h-15 bg-[#e5d5c0] rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                  {step.icon}
+                </div>
+                {/* Tekstovi */}
+                <p className="text-md text-[#5a4b3a] font-semibold font-mono">{step.time}</p>
+
+                <p className="text-2xl font-bold text-[#3e2f1c] mb-1">{step.title}</p>
+                <a
+                  href={step.mapsLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-[#8c7155] hover:text-[#5a4b3a] hover:underline transition"
+                >
+                  {step.location}
+                </a>
+                {step.address && <p className="text-sm text-[#7a6b5c] mt-1">{step.address}</p>}
+              </div>
+            ))}
+          </div>
         </div>
-        ))}
-    </div>
-    </div>
+
+
 
 
       {/* Desktop layout */}
@@ -78,7 +79,8 @@ export default function HodogramTimeline() {
               <div className={`hidden md:flex justify-end pr-4`}>
                 {isLeft && (
                   <div className="text-right text-gray-800 max-w-xs">
-                    <p className="text-base text-gray-500">{step.time}</p>
+                    <p className="text-base text-gray-500 font-semibold font-mono">{step.time}</p>
+
                     <p className="text-xl font-semibold">{step.title}</p>
                     <a
                     href={step.mapsLink}
@@ -95,7 +97,7 @@ export default function HodogramTimeline() {
 
               {/* Točkica s ikonom */}
               <div className="flex justify-center items-center z-10">
-                <div className="w-10 h-10 bg-[#e5d5c0] rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                <div className="w-15 h-15 bg-[#e5d5c0] rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                   {step.icon}
                 </div>
               </div>
@@ -104,7 +106,7 @@ export default function HodogramTimeline() {
               <div className={`hidden md:flex justify-start pl-4`}>
                 {!isLeft && (
                   <div className="text-left text-gray-800 max-w-xs">
-                    <p className="text-base text-gray-500">{step.time}</p>
+                    <p className="text-base text-gray-500 font-semibold font-mono">{step.time}</p>
                     <p className="text-xl font-semibold">{step.title}</p>
                     <a
                     href={step.mapsLink}

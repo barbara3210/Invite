@@ -21,7 +21,8 @@ export default function Home() {
   <div className="absolute inset-0 bg-gray bg-opacity-20" />
 
   <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-bottom px-4 ">
-    <h1 className={`text-7xl ${greatVibes.className}`}>Zrinka & Mato</h1>
+    <h1 className={`text-7xl ${greatVibes.className}`}>Zrinka & </h1>
+    <h1 className={`text-7xl ${greatVibes.className}`}> Mato</h1>
     <p className="text-2xl mt-2">21.11.2025.</p>
   </div>
 
