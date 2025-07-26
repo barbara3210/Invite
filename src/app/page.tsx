@@ -20,11 +20,14 @@ export default function Home() {
   />
   <div className="absolute inset-0 bg-gray bg-opacity-20" />
 
-  <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-bottom px-4 ">
-    <h1 className={`text-7xl ${greatVibes.className}`}>Zrinka & </h1>
-    <h1 className={`text-7xl ${greatVibes.className}`}> Mato</h1>
+ <section className="absolute inset-0 z-10 flex items-start justify-center pt-32 px-4 text-white animate-fade-in">
+  <div className="text-center">
+    <h1 className={`text-7xl ${greatVibes.className}`}>Zrinka &</h1>
+    <h1 className={`text-7xl ${greatVibes.className}`}>Mato</h1>
     <p className="text-2xl mt-2">21.11.2025.</p>
   </div>
+</section>
+
 
   {/* Gradient overlay na dnu */}
   <div
@@ -42,8 +45,15 @@ export default function Home() {
       <InvitationNote />
 
       {/* Hodogram */}
-      <section>
+      <section >
         <HodogramTimeline />
+        <div
+          className="absolute bottom-0 left-0 w-full h-40"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fcf9f6 100%)",
+          }}
+        />
       </section>
 
        {/* RSVPForm */}
