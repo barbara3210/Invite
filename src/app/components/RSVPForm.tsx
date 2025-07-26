@@ -31,7 +31,7 @@ const handleSubmit = async () => {
 
   try {
    const response = await fetch(
-  process.env.REACT_APP_GOOGLE_SCRIPT_URL || "", 
+  process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL || "", 
   {
     method: "POST",
     headers: { "Content-Type": "application/json" },
