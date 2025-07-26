@@ -29,31 +29,17 @@ const handleSubmit = async () => {
     return;
   }
 
-  try {
-   const response = await fetch(
-  process.env.REACT_APP_GOOGLE_SCRIPT_URL || "", 
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      names: validNames,
-      adults,
-      kids,
-      toddlers,
-    }),
-  }
-);
-if (response.ok) {
-      setSubmitted(true);
-    } else {
-      alert("Greška pri slanju. Pokušajte ponovno.");
-    }
+   setSubmitted(true);
+    try {
+    await fetch("/api/rsvp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ names: validNames, adults, kids, toddlers }),
+    });
   } catch (error) {
-    alert("Greška pri slanju. Provjerite vezu i pokušajte ponovno.");
-    console.error(error);
+    console.error("Greška pri slanju u pozadini:", error);
   }
 };
-
 
 
 
