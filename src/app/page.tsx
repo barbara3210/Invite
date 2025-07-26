@@ -15,7 +15,7 @@ export default function Home() {
     src="/prosidba.jpeg"
     alt="Mato i Zrinka"
     fill
-    className="object-cover"
+   className="object-cover object-center md:object-center"
     priority
   />
   <div className="absolute inset-0 bg-gray bg-opacity-20" />
@@ -48,12 +48,12 @@ export default function Home() {
       <section >
         <HodogramTimeline />
         <div
-          className="absolute bottom-0 left-0 w-full h-40"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fcf9f6 100%)",
-          }}
-        />
+    className="w-full h-40"
+    style={{
+      background:
+        "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fcf9f6 100%)",
+    }}
+  />
       </section>
 
        {/* RSVPForm */}
