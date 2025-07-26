@@ -22,7 +22,8 @@ export default function InvitationNote() {
         <p className="text-lg text-gray-700 leading-relaxed">
           S velikom radošću Vas pozivamo da budete dio našeg posebnog dana.
           Pridružite nam se u proslavi ljubavi, smijeha i zajedništva <br/>
-          21. studenog 2025.
+          <br></br>
+          <b>Petak, 21. studenog 2025</b>
         </p>
       </div>
     </section>

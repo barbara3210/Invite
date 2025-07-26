@@ -5,96 +5,134 @@ export default function RSVPForm() {
   const [adults, setAdults] = useState(1);
   const [kids, setKids] = useState(0);
   const [toddlers, setToddlers] = useState(0);
-  const [names, setNames] = useState([""]);
+
+  const [adultNames, setAdultNames] = useState<string[]>([""]);
+  const [kidNames, setKidNames] = useState<string[]>([]);
+  const [toddlerNames, setToddlerNames] = useState<string[]>([]);
+
+  const [adultNameErrors, setAdultNameErrors] = useState<boolean[]>([]);
+  const [kidNameErrors, setKidNameErrors] = useState<boolean[]>([]);
+  const [toddlerNameErrors, setToddlerNameErrors] = useState<boolean[]>([]);
+
   const [submitted, setSubmitted] = useState(false);
 
-  const handleCountChange = (count: number) => {
-    const newNames = [...names];
-    while (newNames.length < count) newNames.push("");
-    while (newNames.length > count) newNames.pop();
-    setNames(newNames);
+  const resizeNamesArray = (
+    arr: string[],
+    setArr: (names: string[]) => void,
+    newSize: number
+  ) => {
+    const newArr = [...arr];
+    while (newArr.length < newSize) newArr.push("");
+    while (newArr.length > newSize) newArr.pop();
+    setArr(newArr);
   };
 
-  const updateName = (index: number, value: string) => {
-    const updated = [...names];
-    updated[index] = value;
-    setNames(updated);
+  const validateNames = (names: string[], setErrors: (errs: boolean[]) => void) => {
+    const errors = names.map((name) => name.trim() === "");
+    setErrors(errors);
+    return errors.some((e) => e);
   };
 
-const handleSubmit = async () => {
-  const validNames = names.filter(name => name.trim() !== "");
+  const handleSubmit = async () => {
+    const hasAdultErrors = validateNames(adultNames, setAdultNameErrors);
+    const hasKidErrors = validateNames(kidNames, setKidNameErrors);
+    const hasToddlerErrors = validateNames(toddlerNames, setToddlerNameErrors);
 
-  if (validNames.length === 0) {
-    alert("Unesite barem jedno ime gosta.");
-    return;
-  }
+    if (hasAdultErrors || hasKidErrors || hasToddlerErrors) {
+      return;
+    }
 
-   setSubmitted(true);
+    const guests = [
+      ...adultNames.map((name) => ({ name: name.trim(), category: "Odrasli" })),
+      ...kidNames.map((name) => ({ name: name.trim(), category: "Dijete 5-14" })),
+      ...toddlerNames.map((name) => ({ name: name.trim(), category: "Dijete do 5" })),
+    ];
+
+    setSubmitted(true);
+
     try {
-    await fetch("/api/rsvp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ names: validNames, adults, kids, toddlers }),
-    });
-  } catch (error) {
-    console.error("Greška pri slanju u pozadini:", error);
-  }
-};
-
-
+      await fetch("/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ guests }),
+      });
+    } catch (error) {
+      console.error("Greška pri slanju:", error);
+    }
+  };
 
   if (submitted) {
     return (
-      <section className="relative py-20 px-4 bg-[#fdf6f0]">
-        <div className="max-w-xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-lg p-10 text-center border border-[#e5d5c0]">
-          <h2 className="text-3xl font-serif text-[#6b4c3b] mb-4">Hvala vam! 🎉</h2>
-          <p className="text-lg text-gray-700">Vaša potvrda dolaska je zaprimljena. Veselimo se druženju! ❤️</p>
+      <section className="relative py-20 px-6 bg-[#fdf6f0] min-h-[300px] flex items-center justify-center">
+        <div className="max-w-xl mx-auto bg-white/90 backdrop-blur-md rounded-3xl shadow-lg p-10 text-center border border-[#e5d5c0]">
+          <h2 className="text-3xl font-serif text-[#5a4b3a] mb-4">Hvala vam! 🎉</h2>
+          <p className="text-lg text-[#3e2f1c]">Vaša potvrda dolaska je zaprimljena. Veselimo se druženju! ❤️</p>
         </div>
       </section>
     );
   }
 
   return (
-    <section className="relative py-20 px-4 bg-[#fdf6f0]">
-      <div className="max-w-3xl mx-auto bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-10 border border-[#e5d5c0]">
-        <h2 className="text-3xl font-serif text-[#6b4c3b] mb-6 text-center">Potvrda dolaska</h2>
+    <section className="bg-[#fcf9f6] py-20 px-4">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="text-3xl font-serif text-center mb-10 text-[#3e2f1c]">
+          Potvrda dolaska
+        </h2>
 
-        {/* Brojači */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 text-center">
+        <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-8 mb-12 text-center">
           {[
-            { label: "Odrasli (od 15 god.)", value: adults, setValue: setAdults },
-            { label: "Djeca 5–14 god.", value: kids, setValue: setKids },
-            { label: "Djeca do 5 god.", value: toddlers, setValue: setToddlers },
-          ].map(({ label, value, setValue }) => (
-            <div key={label}>
-              <p className="text-sm text-gray-700">{label}</p>
-              <div className="flex justify-center items-center gap-2 mt-1">
+            {
+              label: "Odrasli (od 15 god.)",
+              value: adults,
+              setValue: setAdults,
+              names: adultNames,
+              setNames: setAdultNames,
+            },
+            {
+              label: "Djeca 5–14 god.",
+              value: kids,
+              setValue: setKids,
+              names: kidNames,
+              setNames: setKidNames,
+            },
+            {
+              label: "Djeca do 5 god.",
+              value: toddlers,
+              setValue: setToddlers,
+              names: toddlerNames,
+              setNames: setToddlerNames,
+            },
+          ].map(({ label, value, setValue, names, setNames }) => (
+            <div
+              key={label}
+              className="flex flex-col items-center rounded-xl border border-[#e5d5c0] p-4 mb-6 sm:mb-0 min-w-[250px]"
+            >
+              <p className="text-base sm:text-lg text-[#5a4b3a] font-semibold mb-3">
+                {label}
+              </p>
+              <div className="flex items-center justify-center gap-4">
                 <button
                   onClick={() => {
                     const newVal = Math.max(0, value - 1);
                     setValue(newVal);
-                    const newTotal =
-                      (label === "Odrasli (od 15 god.)" ? newVal : adults) +
-                      (label === "Djeca 5–14 god." ? newVal : kids) +
-                      (label === "Djeca do 5 god." ? newVal : toddlers);
-                    handleCountChange(newTotal);
+                    resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-8 h-8 bg-[#e5d5c0] rounded-full text-white text-xl font-semibold"
+                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center"
+                  aria-label={`Smanji broj ${label}`}
+                  type="button"
                 >
                   −
                 </button>
-                <span className="text-lg font-semibold">{value}</span>
+                <span className="text-2xl font-bold w-10 text-center">{value}</span>
                 <button
                   onClick={() => {
                     const newVal = value + 1;
                     setValue(newVal);
-                    const newTotal =
-                      (label === "Odrasli (od 15 god.)" ? newVal : adults) +
-                      (label === "Djeca 5–14 god." ? newVal : kids) +
-                      (label === "Djeca do 5 god." ? newVal : toddlers);
-                    handleCountChange(newTotal);
+                    resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-8 h-8 bg-[#e5d5c0] rounded-full text-white text-xl font-semibold"
+                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center"
+                  aria-label={`Povećaj broj ${label}`}
+                  type="button"
                 >
                   +
                 </button>
@@ -103,26 +141,66 @@ const handleSubmit = async () => {
           ))}
         </div>
 
-        {/* Unos imena */}
-        <div className="space-y-4 mb-8">
-          {names.map((name, index) => (
-            <div key={index}>
-              <label className="block text-sm text-gray-700 mb-1">Gost {index + 1} - Ime i prezime</label>
+        <div className="space-y-6 mb-10">
+          {adultNames.map((name, i) => (
+            <div key={`adult-${i}`} className="flex flex-col">
               <input
-                type="text"
                 value={name}
-                onChange={(e) => updateName(index, e.target.value)}
-                className="w-full p-2 border border-[#e5d5c0] rounded-lg bg-white/80"
+                onChange={(e) => {
+                  const newNames = [...adultNames];
+                  newNames[i] = e.target.value;
+                  setAdultNames(newNames);
+                }}
+                className="w-full p-2 border border-[#e5d5c0] rounded-lg bg-white/80 text-[#3e2f1c]"
+                placeholder={`Odrasli ${i + 1} - ime i prezime`}
               />
+              {adultNameErrors[i] && (
+                <p className="text-sm text-red-600 mt-1">Molimo unesite ime gosta.</p>
+              )}
+            </div>
+          ))}
+
+          {kidNames.map((name, i) => (
+            <div key={`kid-${i}`} className="flex flex-col">
+              <input
+                value={name}
+                onChange={(e) => {
+                  const newNames = [...kidNames];
+                  newNames[i] = e.target.value;
+                  setKidNames(newNames);
+                }}
+                className="w-full p-2 border border-[#e5d5c0] rounded-lg bg-white/80 text-[#3e2f1c]"
+                placeholder={`Dijete ${i + 1} - ime i prezime`}
+              />
+              {kidNameErrors[i] && (
+                <p className="text-sm text-red-600 mt-1">Molimo unesite ime gosta.</p>
+              )}
+            </div>
+          ))}
+
+          {toddlerNames.map((name, i) => (
+            <div key={`toddler-${i}`} className="flex flex-col">
+              <input
+                value={name}
+                onChange={(e) => {
+                  const newNames = [...toddlerNames];
+                  newNames[i] = e.target.value;
+                  setToddlerNames(newNames);
+                }}
+                className="w-full p-2 border border-[#e5d5c0] rounded-lg bg-white/80 text-[#3e2f1c]"
+                placeholder={`Malo dijete ${i + 1} - ime i prezime`}
+              />
+              {toddlerNameErrors[i] && (
+                <p className="text-sm text-red-600 mt-1">Molimo unesite ime gosta.</p>
+              )}
             </div>
           ))}
         </div>
 
-        {/* Gumb za potvrdu */}
         <div className="text-center">
           <button
             onClick={handleSubmit}
-            className="px-6 py-3 bg-[#e5d5c0] text-white rounded-xl text-lg hover:bg-[#d8c0a5] transition"
+            className="inline-block px-8 py-4 bg-[#5a4b3a] text-white rounded-full text-lg font-semibold hover:bg-[#3e2f1c] shadow-lg transition"
           >
             Potvrdi dolazak
           </button>
