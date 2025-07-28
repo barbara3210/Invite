@@ -44,8 +44,8 @@ export default function RSVPForm() {
 
     const guests = [
       ...adultNames.map((name) => ({ name: name.trim(), category: "Odrasli" })),
-      ...kidNames.map((name) => ({ name: name.trim(), category: "Dijete 5-14" })),
-      ...toddlerNames.map((name) => ({ name: name.trim(), category: "Dijete do 5" })),
+      ...kidNames.map((name) => ({ name: name.trim(), category: "Dijete 6-12" })),
+      ...toddlerNames.map((name) => ({ name: name.trim(), category: "Dijete do " })),
     ];
 
     setSubmitted(true);
@@ -82,21 +82,21 @@ export default function RSVPForm() {
         <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-8 mb-12 text-center">
           {[
             {
-              label: "Odrasli (od 15 god.)",
+              label: "Odrasli",
               value: adults,
               setValue: setAdults,
               names: adultNames,
               setNames: setAdultNames,
             },
             {
-              label: "Djeca 5–14 god.",
+              label: "Djeca 6–12 god.",
               value: kids,
               setValue: setKids,
               names: kidNames,
               setNames: setKidNames,
             },
             {
-              label: "Djeca do 5 god.",
+              label: "Djeca do 6 god.",
               value: toddlers,
               setValue: setToddlers,
               names: toddlerNames,

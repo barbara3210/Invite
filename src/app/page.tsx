@@ -12,7 +12,7 @@ export default function Home() {
       {/* Hero sekcija */}
       <section className="relative h-screen w-full">
   <Image
-    src="/prosidba.jpeg"
+    src="/zizi.jpeg"
     alt="Mato i Zrinka"
     fill
    className="object-cover object-center md:object-center"
