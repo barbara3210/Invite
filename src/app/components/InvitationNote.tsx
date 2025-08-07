@@ -20,8 +20,7 @@ export default function InvitationNote() {
       <div className="relative z-10 max-w-3xl mx-auto bg-white/70 backdrop-blur-md rounded-2xl shadow-lg p-10 text-center border border-[#e5d5c0]">
         <h2 className="text-3xl font-serif text-[#6b4c3b] mb-4">Pozivamo Vas</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
-          S velikom radošću Vas pozivamo da budete dio našeg posebnog dana.
-          Pridružite nam se u proslavi ljubavi, smijeha i zajedništva <br/>
+          Pridružite nam se u slavlju ljubavi, smijeha i novih početaka! Vaše prisustvo čini naš dan posebnim. <br/>
           <br></br>
           <b>Petak, 21. studenog 2025</b>
         </p>

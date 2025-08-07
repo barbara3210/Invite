@@ -65,7 +65,7 @@ export default function RSVPForm() {
     return (
       <section className="relative py-20 px-6 bg-[#fdf6f0] min-h-[300px] flex items-center justify-center">
         <div className="max-w-xl mx-auto bg-white/90 backdrop-blur-md rounded-3xl shadow-lg p-10 text-center border border-[#e5d5c0]">
-          <h2 className="text-3xl font-serif text-[#5a4b3a] mb-4">Hvala vam! 🎉</h2>
+          <h2 className="text-3xl font-serif text-[#5a4b3a] mb-4">Hvala Vam! 🎉</h2>
           <p className="text-lg text-[#3e2f1c]">Vaša potvrda dolaska je zaprimljena. Veselimo se druženju! ❤️</p>
         </div>
       </section>
