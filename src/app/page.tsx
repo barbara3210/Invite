@@ -3,6 +3,7 @@ import HodogramTimeline from "./components/HodogramTimeline";
 import { Great_Vibes } from "next/font/google";
 import InvitationNote from "./components/InvitationNote";
 import RSVPForm from "./components/RSVPForm";
+import Envelope from "./components/Envelope";
 
 const greatVibes = Great_Vibes({ weight: "400", subsets: ["latin"] });
 
@@ -38,9 +39,10 @@ export default function Home() {
         />
       </section>
 
-      {/* Pozivamo Vas */}
-      <InvitationNote />
-
+     
+      {/* Pozivnica */}
+       <Envelope/>
+    
       {/* Hodogram */}
       <section>
         <HodogramTimeline />
