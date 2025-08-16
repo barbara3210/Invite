@@ -34,8 +34,8 @@ if (!response.ok) {
 return NextResponse.json(result);
 
 
-  } catch (error: any) {
+  } catch (error) {
     console.error("Greška pri slanju na Google Script:", error);
-    return NextResponse.json({ success: false, error: error.message || "Greška pri komunikaciji sa skriptom." }, { status: 500 });
+    return NextResponse.json({ success: false, error: error || "Greška pri komunikaciji sa skriptom." }, { status: 500 });
   }
 }
