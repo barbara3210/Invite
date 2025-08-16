@@ -74,7 +74,7 @@ export default function RSVPForm() {
 
   return (
     <section className="bg-[#fcf9f6] py-20 px-4">
-      <div className="max-w-3xl mx-auto ">
+      <div className="max-w-3xl mx-auto bg-[#ffffff] border-2 border-[#e5d5c0] rounded-3xl shadow-lg p-10">
         <h2 className="text-3xl font-serif text-center mb-10 text-[#3e2f1c]">
           Potvrda dolaska
         </h2>
@@ -117,20 +117,20 @@ export default function RSVPForm() {
                     setValue(newVal);
                     resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center"
+                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center leading-none"
                   aria-label={`Smanji broj ${label}`}
                   type="button"
                 >
                   −
                 </button>
-                <span className="text-2xl font-bold w-10 text-center">{value}</span>
+                <span className="text-2xl font-semibold text-[#3e2f1c] w-10 text-center">{value}</span>
                 <button
                   onClick={() => {
                     const newVal = value + 1;
                     setValue(newVal);
                     resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center"
+                  className="w-10 h-10 bg-[#e5d5c0]/70 rounded-full text-[#3e2f1c] text-xl font-bold shadow-sm hover:bg-[#e5d5c0] transition flex items-center justify-center leading-none"
                   aria-label={`Povećaj broj ${label}`}
                   type="button"
                 >
@@ -200,7 +200,7 @@ export default function RSVPForm() {
         <div className="text-center">
           <button
             onClick={handleSubmit}
-            className="inline-block px-8 py-4 bg-[#5a4b3a] text-white rounded-full text-lg font-semibold hover:bg-[#3e2f1c] shadow-lg transition"
+            className="font-sans inline-block px-8 py-4 bg-[#E5D5C0] text-[#3e2f1c] rounded-full text-lg font-semibold hover:bg-[#3e2f1c] shadow-lg transition"
           >
             Potvrdi dolazak
           </button>

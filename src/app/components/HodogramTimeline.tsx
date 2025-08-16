@@ -68,7 +68,7 @@ export default function HodogramTimeline() {
                       className="rounded-lg object-contain"
                     />
                   </div>
-                  <p className="text-sm text-gray-600">{step.time}</p>
+                  <p className="font-sans text-sm text-gray-600">{step.time}</p>
                   <h3 className="text-lg font-semibold text-[#3e2f1c]">
                     {step.title}
                   </h3>
@@ -95,7 +95,7 @@ export default function HodogramTimeline() {
                     className="rounded-lg object-contain"
                   />
                 </div>
-                <p className="text-sm text-gray-600">{step.time}</p>
+                <p className="font-sans text-sm text-gray-600">{step.time}</p>
                 <h3 className="text-lg font-semibold text-[#3e2f1c]">
                   {step.title}
                 </h3>
@@ -124,7 +124,7 @@ export default function HodogramTimeline() {
                       className="rounded-lg object-contain"
                     />
                   </div>
-                  <p className="text-sm text-gray-600">{step.time}</p>
+                  <p className="font-sans text-sm text-gray-600">{step.time}</p>
                   <h3 className="text-lg font-semibold text-[#3e2f1c]">
                     {step.title}
                   </h3>

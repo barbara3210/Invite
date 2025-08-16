@@ -10,11 +10,18 @@ export default function Envelope() {
     <section
       className="relative min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: "url('/backgrounds/silk.jpg')",
+        backgroundImage: "url('/backgrounds/whbc.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+       <div
+    className="absolute top-0 left-0 w-full h-40"
+    style={{
+      background:
+        "linear-gradient(to top, rgba(255,255,255,0) 0%, #EAE3DF 100%)",
+    }}
+  />
       <motion.div
         initial={{ rotate: -5 }}
         animate={{ rotate: opened ? 0 : -5 }}
@@ -96,9 +103,8 @@ export default function Envelope() {
             <h2 className="font-serif text-xl text-[#5a4b3a] mb-2">
               Dragi naši,
             </h2>
-            <p className="text-sm text-gray-700">
-              Sa velikim zadovoljstvom vas pozivamo da budete dio najvažnijeg
-              dana u našim životima.
+            <p className="font-sans text-sm text-gray-700">
+              Pridružite nam se u slavlju ljubavi, smijeha i novih početaka! <br/>Vaše prisustvo čini naš dan posebnim.
             </p>
           </motion.div>
         )}
