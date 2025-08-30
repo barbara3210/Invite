@@ -1,6 +1,4 @@
-import HodogramTimeline from "./components/HodogramTimeline";
 import RSVPForm from "./components/RSVPForm";
-import Envelope from "./components/Envelope";
 import Hero from "./components/Hero";
 import Zim from "./components/zim";
 import Tekst from "./components/tekst";
@@ -18,15 +16,6 @@ export default function Home() {
 
       <Hod/>
 
-      {/* Pozivnica 
-      <Envelope />*/}
-
-      {/* Hodogram
-      <section>
-        <HodogramTimeline />
-      </section> */}
-
-      {/* RSVPForm */}
       <section>
         <RSVPForm />
       </section>
