@@ -8,14 +8,14 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       {/* Slika preko cijelog ekrana, ali fokusirana na sredinu */}
       <Image
-        src="/zim.jpg"
+        src="/home.jpg"
         alt="Mato i Zrinka"
         fill
         className="object-cover object-center sm:object-top"
         priority
       />
 
-      {/* Tekst centriran gore horizontalno */}
+      {/* Tekst centriran gore horizontalno 
       <div className="absolute top-10 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center px-4">
         <h1 className={`text-5xl sm:text-8xl ${greatVibes.className}`}>
           Zrinka &
@@ -29,7 +29,7 @@ export default function Hero() {
           background:
             "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #EAE3DF 100%)",
         }}
-      />
+      /> */}
     </section>
   );
 }
