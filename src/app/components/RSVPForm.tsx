@@ -1,5 +1,12 @@
 "use client";
 import { useState } from "react";
+import { Annie_Use_Your_Telescope } from "next/font/google";
+
+const annie = Annie_Use_Your_Telescope({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RSVPForm() {
   // Stanja za broj odraslih, djece i male djece
@@ -82,11 +89,11 @@ export default function RSVPForm() {
     return (
       <section className="relative py-20 px-6 bg-[#ffffff] min-h-[300px] flex items-center justify-center">
         <div className="max-w-xl mx-auto bg-white backdrop-blur-md rounded-3xl shadow-lg p-10 text-center ">
-          <h2 className="text-3xl font-serif text-[#6B4F4F] mb-4">
+          <h2 className="text-3xl font-sans text-[#1B1B1B] mb-4">
             Hvala Vam! 🎉
           </h2>
-          <p className="font-sans text-lg text-[#5A3E36]">
-            Vaša potvrda dolaska je zaprimljena. Veselimo se druženju! ❤️
+          <p className={`${annie.className} text-xl text-center mb-10 text-[#1B1B1B]`}>
+            Primili smo Vašu potvrdu dolaska. Veselimo se druženju! ❤️
           </p>
         </div>
       </section>
@@ -98,7 +105,8 @@ export default function RSVPForm() {
     <section className="bg-[#ffffff] py-20 px-4">
       <div className="max-w-3xl mx-auto bg-[#ffffff] border-[#1B1B1B] rounded-2xl shadow-lg p-10">
         {/* Naslov forme */}
-        <h2 className="text-3xl font-sans text-center mb-10 text-[#1B1B1B]">
+        <h2 
+          className={`${annie.className} text-3xl text-center mb-10 text-[#1B1B1B]`}>
           Potvrda dolaska
         </h2>
 
@@ -131,7 +139,8 @@ export default function RSVPForm() {
               key={label}
               className="font-sans flex flex-col items-center rounded-xl p-4 mb-6 sm:mb-0 min-w-[250px]"
             >
-              <p className="text-base sm:text-lg text-[#1B1B1B] font-semibold mb-3">
+              <p 
+          className={`${annie.className} text-2xl text-center mb-10 text-[#1B1B1B]`}>
                 {label}
               </p>
               <div className="flex items-center justify-center gap-4">
@@ -142,7 +151,7 @@ export default function RSVPForm() {
                     setValue(newVal);
                     resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-10 h-10 bg-[#E5989B] rounded-full text-white 
+                  className="w-10 h-10 bg-[#C51E3A] rounded-full text-white 
              text-2xl font-bold shadow-sm hover:bg-[#D67A7A] 
              transition flex items-center justify-center leading-none"
                   aria-label={`Smanji broj ${label}`}
@@ -163,7 +172,7 @@ export default function RSVPForm() {
                     setValue(newVal);
                     resizeNamesArray(names, setNames, newVal);
                   }}
-                  className="w-10 h-10 bg-[#99C1DE] rounded-full text-white 
+                  className="w-10 h-10 bg-[#003262] rounded-full text-white 
              text-2xl font-bold shadow-sm hover:bg-[#6B9AC4] 
              transition flex items-center justify-center leading-none"
                   aria-label={`Povećaj broj ${label}`}
@@ -188,7 +197,7 @@ export default function RSVPForm() {
                   newNames[i] = e.target.value;
                   setAdultNames(newNames);
                 }}
-                className="font-sans w-full p-2 border border-[#E5989B] rounded-lg bg-white text-[#5A3E36]"
+                className="font-sans w-full p-2 border border-[#C51E3A] rounded-lg bg-white text-[#5A3E36]"
                 placeholder={`Odrasli ${i + 1} - ime i prezime`}
               />
               {adultNameErrors[i] && (
@@ -209,7 +218,7 @@ export default function RSVPForm() {
                   newNames[i] = e.target.value;
                   setKidNames(newNames);
                 }}
-                className="font-sans w-full p-2 border border-[#F5C6AA] rounded-lg bg-white text-[#5A3E36]"
+                className="font-sans w-full p-2 border border-[#C51E3A] rounded-lg bg-white text-[#5A3E36]"
                 placeholder={`Dijete ${i + 1} - ime i prezime`}
               />
               {kidNameErrors[i] && (
@@ -230,7 +239,7 @@ export default function RSVPForm() {
                   newNames[i] = e.target.value;
                   setToddlerNames(newNames);
                 }}
-                className="font-sans w-full p-2 border border-[#F5C6AA] rounded-lg bg-white text-[#5A3E36]"
+                className="font-sans w-full p-2 border border-[#C51E3A] rounded-lg bg-white text-[#5A3E36]"
                 placeholder={`Malo dijete ${i + 1} - ime i prezime`}
               />
               {toddlerNameErrors[i] && (
@@ -246,7 +255,7 @@ export default function RSVPForm() {
         <div className="text-center">
           <button
             onClick={handleSubmit}
-            className="font-sans inline-block px-8 py-4 bg-[#adcde4] text-[#1B1B1B] rounded-2xl text-lg font-semibold hover:bg-[#D67A7A] shadow-lg transition"
+            className="font-sans inline-block px-8 py-4 bg-[#003262] text-[#ffffff] rounded-2xl text-lg font-semibold hover:bg-[#D67A7A] shadow-lg transition"
           >
             Potvrdi dolazak
           </button>
