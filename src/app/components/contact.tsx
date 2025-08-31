@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-export default function Hero() {
+export default function Contact() {
   return (
     <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
       <Image
-        src="/dvajspete.jpg"
-        alt="Mato i Zrinka"
+        src="/kontakt.jpg"
+        alt="kontakt"
         fill
         className="object-cover"
         priority

@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Tekst() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
       <Image
-        src="/tekst.jpg"
-        alt="Mato i Zrinka"
+        src="/pismo.jpg"
+        alt="Pismo"
         fill
-        className="object-cover object-center sm:object-top"
+        className="object-cover"
         priority
       />
     </section>
