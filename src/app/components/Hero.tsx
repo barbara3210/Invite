@@ -6,7 +6,7 @@ export default function Hero() {
       {/* Responsive hero image */}
       <div className="relative w-full flex-grow flex justify-center items-center">
         <Image
-          src="/dvajspete1.jpg"
+          src="/dvajspete1.JPG"
           alt="Mato i Zrinka"
           fill
           className="object-cover sm:object-contain sm:object-center"

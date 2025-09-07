@@ -7,7 +7,7 @@ export default function Zim() {
       {/* Background image container */}
       <div className="relative flex justify-center items-center flex-grow max-h-[50%] sm:max-h-[40%] w-full">
         <Image
-  src="/zim1.jpg"
+  src="/zim1.JPG"
   alt="Mato i Zrinka"
   width={900}
   height={700}
