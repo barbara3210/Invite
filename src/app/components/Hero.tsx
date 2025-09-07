@@ -3,12 +3,12 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative h-[100dvh] w-full flex justify-center items-center overflow-hidden">
-      {/* Fullscreen image */}
+      {/* Responsive hero image */}
       <Image
         src="/dvajspete.jpg"
         alt="Mato i Zrinka"
         fill
-        className="object-cover object-center"
+        className="object-cover sm:object-contain sm:object-center"
         priority
       />
 
