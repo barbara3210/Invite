@@ -15,7 +15,7 @@ export default function Contact() {
       </div>
 
       {/* Scroll hint arrow */}
-      <div className="mb-4 sm:mb-8">
+      <div className="mb-4 sm:mb-8 -translate-y-10">
         <Image
           src="/strelica.png"
           alt="Scroll down"

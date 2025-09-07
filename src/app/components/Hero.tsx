@@ -14,8 +14,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* Arrow for scroll hint */}
-      <div className="mb-4 sm:mb-8">
+       {/* Arrow for scroll hint */}
+      <div className="mb-4 sm:mb-8 -translate-y-10">
         <Image
           src="/strelica.png"
           alt="Scroll dolje"
