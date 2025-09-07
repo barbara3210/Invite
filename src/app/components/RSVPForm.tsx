@@ -161,7 +161,7 @@ export default function RSVPForm() {
                 </button>
 
                 {/* Vrijednost */}
-                <span className="text-2xl font-semibold text-[#5A3E36] w-10 text-center">
+                <span className="text-2xl font-semibold text-[#1B1B1B] w-10 text-center">
                   {value}
                 </span>
 
