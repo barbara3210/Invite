@@ -3,7 +3,7 @@ import Hod from "./hod";
 
 export default function Zim() {
   return (
-    <section className="relative h-[100dvh] w-full flex justify-center items-center overflow-hidden">
+    <section className="relative min-h-[100dvh] w-full flex justify-center items-center overflow-hidden">
       {/* Background image moved slightly up */}
       <Image
         src="/zim2.jpg"

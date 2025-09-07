@@ -2,18 +2,20 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative h-[100dvh] w-full flex justify-center items-center overflow-hidden">
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-between items-center overflow-hidden">
       {/* Responsive hero image */}
-      <Image
-        src="/dvajspete.jpg"
-        alt="Mato i Zrinka"
-        fill
-        className="object-cover sm:object-contain sm:object-center"
-        priority
-      />
+      <div className="relative w-full flex-grow flex justify-center items-center">
+        <Image
+          src="/dvajspete.jpg"
+          alt="Mato i Zrinka"
+          fill
+          className="object-cover sm:object-contain sm:object-center"
+          priority
+        />
+      </div>
 
       {/* Arrow for scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="mb-4 sm:mb-8">
         <Image
           src="/strelica.png"
           alt="Scroll dolje"
