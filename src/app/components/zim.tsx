@@ -6,7 +6,7 @@ export default function Zim() {
     <section className="relative h-[100dvh] w-full flex justify-center items-center overflow-hidden">
       {/* Background image moved slightly up */}
       <Image
-        src="/zim.jpg"
+        src="/zim2.jpg"
         alt="Mato i Zrinka"
         fill
         className="object-cover sm:object-contain"
