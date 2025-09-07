@@ -3,15 +3,18 @@ import Hod from "./hod";
 
 export default function Zim() {
   return (
-    <section className="relative h-screen w-full flex justify-center items-center overflow-hidden">
+    <section className="relative h-[100dvh] w-full flex justify-center items-center overflow-hidden">
+      {/* Background image */}
       <Image
         src="/zim2.jpg"
         alt="Mato i Zrinka"
         fill
-        className="object-cover"
+        className="object-cover sm:object-contain"
         priority
       />
-      <div className="absolute bottom-5 w-full bg-white/80">
+
+      {/* Grid pinned to bottom */}
+      <div className="absolute bottom-4 w-full bg-white/80">
         <Hod />
       </div>
     </section>
