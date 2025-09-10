@@ -8,7 +8,7 @@ export default function Tekst() {
         alt="Pismo"
         width={1000}  
         height={2000}  
-        className="max-h-[90vh] w-auto object-contain"
+        className="max-h-[80vh] w-auto object-contain"
         priority
       />
     </section>
