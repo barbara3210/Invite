@@ -7,17 +7,17 @@ export default function Zim() {
       {/* Background image container */}
       <div className="relative flex justify-center items-center flex-grow max-h-[50%] sm:max-h-[40%] w-full">
         <Image
-  src="/zim1.JPG"
-  alt="Mato i Zrinka"
-  width={900}
-  height={700}
-  className="object-contain max-w-[90%] sm:max-w-[70%] h-auto"
-  priority
-/>
-
+          src="/zim.JPG"
+          alt="Mato i Zrinka"
+          width={1000}
+          height={1100}
+          className="object-contain max-w-[85%] sm:max-w-[70%] h-auto"
+          priority
+        />
       </div>
 
-      <div className=" mb-20 w-full bg-white/80">
+      {/* Hod overlapped closer to image */}
+      <div className="-mt-12 w-full bg-white/80">
         <Hod />
       </div>
     </section>

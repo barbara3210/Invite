@@ -15,12 +15,12 @@ export default function Hero() {
       </div>
 
        {/* Arrow for scroll hint */}
-      <div className="mb-4 sm:mb-8 -translate-y-10">
+      <div className="mb-4 sm:mb-8 -translate-y-10 animate-bounce">
         <Image
           src="/strelica.png"
           alt="Scroll dolje"
-          width={50}
-          height={50}
+          width={80}
+          height={80}
           className="sm:w-16 sm:h-16"
         />
       </div>

@@ -106,8 +106,8 @@ export default function RSVPForm() {
       <div className="max-w-3xl mx-auto bg-[#ffffff] border-[#1B1B1B] rounded-2xl shadow-lg p-10">
         {/* Naslov forme */}
         <h2 
-          className={`${annie.className} text-3xl text-center mb-10 text-[#1B1B1B]`}>
-          Potvrda dolaska
+          className={`${annie.className} text-2xl text-center mb-10 text-[#1B1B1B]`}>
+          Potvrda dolaska - do 28.10.
         </h2>
 
         {/* Dio s brojačima odraslih/djece */}

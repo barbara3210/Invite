@@ -15,12 +15,12 @@ export default function Contact() {
       </div>
 
       {/* Scroll hint arrow */}
-      <div className="mb-4 sm:mb-8 -translate-y-10">
+      <div className="mb-4 sm:mb-8 -translate-y-10 animate-bounce">
         <Image
           src="/strelica.png"
           alt="Scroll down"
-          width={50}
-          height={50}
+          width={80}
+          height={80}
           className="sm:w-20 sm:h-20"
         />
       </div>
