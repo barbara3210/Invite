@@ -9,9 +9,9 @@ export default function Zim() {
         <Image
           src="/zim.jpg"
           alt="Mato i Zrinka"
-          width={900}
-          height={1000}
-          className="object-contain max-w-[80%] sm:max-w-[60%] h-auto"
+          width={800}
+          height={900}
+          className="object-contain max-w-[60%] sm:max-w-[60%] h-auto"
           priority
         />
       </div>
