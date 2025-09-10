@@ -9,15 +9,15 @@ export default function Zim() {
         <Image
           src="/zim.jpg"
           alt="Mato i Zrinka"
-          width={1000}
-          height={1100}
-          className="object-contain max-w-[85%] sm:max-w-[70%] h-auto"
+          width={900}
+          height={1000}
+          className="object-contain max-w-[80%] sm:max-w-[60%] h-auto"
           priority
         />
       </div>
 
       {/* Hod overlapped closer to image */}
-      <div className="-mt-12 w-full bg-white/80">
+      <div className="-mt-2 w-full bg-white/80">
         <Hod />
       </div>
     </section>
