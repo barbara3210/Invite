@@ -6,7 +6,7 @@ export default function Contact() {
       {/* Responsive image */}
       <div className="relative w-full flex-grow flex justify-center items-center">
         <Image
-          src="/kontakt.jpg"
+          src="/kontakt.JPG"
           alt="kontakt"
           fill
           className="object-cover object-center sm:object-contain sm:object-center"
