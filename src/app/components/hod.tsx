@@ -16,7 +16,7 @@ export default function Hod() {
     {
       src: "/ho3.JPG",
       alt: "Lokacija 3",
-      href: "https://maps.app.goo.gl/XMwBvQMdcZcdNG81A",
+      href: "https://maps.app.goo.gl/1pALY19m6ojebDKY6",
     },
   ];
 
